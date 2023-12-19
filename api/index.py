@@ -53,7 +53,7 @@ def process_issues_overview(data: pd.DataFrame) -> dict:
     issues_records = data_sorted.to_dict("records")
     return issues_records
 
-@app.post("/process-csv")
+@app.post("/api/process-csv")
 async def process_csv(crawl_overview: UploadFile = File(...), issues_overview: UploadFile = File(...)):
     crawl_data = await crawl_overview.read()
     issues_data = await issues_overview.read()
